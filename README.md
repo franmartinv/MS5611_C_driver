@@ -1,7 +1,9 @@
 # MS5611 sensor API
 ## Author
 Name:			Francisco Martín Villegas
+
 Email:			f.martinvillegas00@gmail.com
+
 Colleague:		University of Almería (Spain)
 
 ## Introduction
