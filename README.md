@@ -4,7 +4,7 @@ Name:			Francisco Martín Villegas
 
 Email:			f.martinvillegas00@gmail.com
 
-Colleague:		University of Almería (Spain)
+University:		University of Almería (Spain)
 
 ## Introduction
 This package contains the MS5611 temperature and pressure sensor.
