@@ -1,5 +1,5 @@
 /**
- * MS5611 project
+ * MS5611 temperature and pressure sensor project
  *
  */
 
@@ -26,8 +26,8 @@ void app_main(void)
 	MS5611_init();			// MS5611 slave initialition
 
 	while(1) {
-		t = MS5611_read_temperature();					// Temperature reading
-		p = MS5611_read_pressure();						// Pressure reading
+		t = MS5611_read_temperature();				// Temperature reading
+		p = MS5611_read_pressure();				// Pressure reading
 		printf("Temperature: %f\nPressure: %f\n",t,p);
 		vTaskDelay(3000/portTICK_PERIOD_MS);
 	}
