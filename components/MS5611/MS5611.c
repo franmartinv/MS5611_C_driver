@@ -130,7 +130,7 @@ int MS5611_coef(uint16_t *C1, uint16_t *C2, uint16_t *C3, uint16_t *C4, uint16_t
 	uint8_t 	buffer_out[2];
 	uint16_t	coefs[6];
 	esp_err_t 	ret;
-	int			i;
+	int		i;
 
 	ret = MS5611_write_byte(MS5611_RESET);
 	if(ret != ESP_OK) {
@@ -278,8 +278,8 @@ int32_t press_calibrate(uint32_t temperature, int32_t pressure, uint16_t C1, uin
 	uint32_t 	off, sens, p, dT;
 
 	dT 		= 	temperature - (C5*pow(2,8));
-	off 	= 	(C2*pow(2,16))+((C4*dT)/pow(2,7));
-	sens 	= 	(C1*pow(2,15))+((C3*dT)/pow(2,8));
+	off 		= 	(C2*pow(2,16))+((C4*dT)/pow(2,7));
+	sens 		= 	(C1*pow(2,15))+((C3*dT)/pow(2,8));
 
 	p 		= 	((((pressure*sens) / pow(2,21)) - off) / pow(2,15));
 
@@ -306,13 +306,13 @@ int32_t press_calibrate_2(uint32_t temperature, int32_t pressure, uint16_t C1, u
 	uint32_t 	off, sens, p, dT, off2, sens2;
 
 	dT 		= 	temperature - (C5*pow(2,8));
-	off 	= 	(C2*pow(2,16))+((C4*dT)/pow(2,7));
-	sens 	= 	(C1*pow(2,15))+((C3*dT)/pow(2,8));
+	off 		= 	(C2*pow(2,16))+((C4*dT)/pow(2,7));
+	sens 		= 	(C1*pow(2,15))+((C3*dT)/pow(2,8));
 
-	off2 	= 	5*pow((temperature-2000),2)/2;
-	sens2 	= 	5*pow((temperature-2000),2)/4;
-	off 	=	off - off2;
-	sens 	= 	sens - sens2;
+	off2 		= 	5*pow((temperature-2000),2)/2;
+	sens2 		= 	5*pow((temperature-2000),2)/4;
+	off 		=	off - off2;
+	sens 		= 	sens - sens2;
 
 	p 		= 	((((pressure*sens) / pow(2,21)) - off) / pow(2,15));
 
@@ -339,15 +339,15 @@ int32_t press_calibrate_3(uint32_t temperature, int32_t pressure, uint16_t C1, u
 	uint32_t 	off, sens, p, dT, off2, sens2, off3, sens3;
 
 	dT 		= 	temperature - (C5*pow(2,8));
-	off 	= 	(C2*pow(2,16))+((C4*dT)/pow(2,7));
-	sens 	= 	(C1*pow(2,15))+((C3*dT)/pow(2,8));
+	off 		= 	(C2*pow(2,16))+((C4*dT)/pow(2,7));
+	sens 		= 	(C1*pow(2,15))+((C3*dT)/pow(2,8));
 
-	off2 	= 	5*pow((temperature-2000),2)/2;
-	off3 	= 	off2 + (7*pow((temperature+1500),2));
-	sens2 	= 	(5*pow((temperature-2000),2))/4;
-	sens3 	=	sens2 + ((11*pow(temperature+1500,2))/2);
-	off 	= 	off - off3;
-	sens 	= 	sens - sens3;
+	off2 		= 	5*pow((temperature-2000),2)/2;
+	off3 		= 	off2 + (7*pow((temperature+1500),2));
+	sens2 		= 	(5*pow((temperature-2000),2))/4;
+	sens3 		=	sens2 + ((11*pow(temperature+1500,2))/2);
+	off 		= 	off - off3;
+	sens 		= 	sens - sens3;
 
 	p 		= 	((((pressure*sens) / pow(2,21)) - off) / pow(2,15));
 
@@ -431,7 +431,7 @@ void display_temp_press(long temperature, long pressure)
 {
 	float 	temp_final, press_final;
 
-	temp_final 		= 	(float)temperature / 100;
+	temp_final 	= 	(float)temperature / 100;
 	press_final 	= 	(float)abs(pressure) / 100;
 
 	printf("The final values of temperature and pressure are:\n");
