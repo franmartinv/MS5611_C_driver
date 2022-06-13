@@ -245,14 +245,14 @@ int32_t MS5611_temperature(uint16_t coef[5], uint32_t* t_no_compensate)
 
 	temperature 		= 	((buffer_out[0])*65536)+((buffer_out[1])*256)+(buffer_out[2]);
 	*t_no_compensate 	= 	temperature;
-	dT 					= 	temperature - (C5*256);
-	aux 				= 	2000 + (dT*(C6/pow(2, 23))); //temperature
+	dT 			= 	temperature - (C5*256);
+	aux 			= 	2000 + (dT*(C6/pow(2, 23))); //temperature
 
 	if(temperature >= 2000) {
 		return aux;
 	}
 	else {
-		T2 		= (dT*dT)/2147483648;
+		T2 	= (dT*dT)/2147483648;
 		aux 	= aux - T2;
 		return aux;
 	}
@@ -405,7 +405,7 @@ int32_t MS5611_pressure(uint16_t coef[5],  uint32_t t_no_compensate)
 	}
 
 	pressure	=	((buffer_out[0]) * 65536) + ((buffer_out[1]) * 256) + (buffer_out[2]);
-	temperature = 	t_no_compensate;
+	temperature 	= 	t_no_compensate;
 
 	if(temperature < 2000) {
 		if(temperature < -1500) {
